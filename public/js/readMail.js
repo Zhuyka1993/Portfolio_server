@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const mailContainer = document.getElementById('mailContainer');
 
     try {
-        const response = await fetch('https://portfolio-server-spvg.onrender.com/main/api/mails');
+        const response = await fetch('https://portfolio-server-spvg.onrender.com/api/mails');
         const mails = await response.json();
 
         mails.forEach(mail => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', async () => {
                 try {
-                    const deleteResponse = await fetch(`http://localhost:5000/api/mails/${mail._id}`, {
+                    const deleteResponse = await fetch(`https://portfolio-server-spvg.onrender.com/api/mails/${mail._id}`, {
                         method: 'DELETE',
                     });
                     if (deleteResponse.ok) {
