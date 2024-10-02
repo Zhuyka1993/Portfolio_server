@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Mail</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <h1>Read Mail</h1>
+    <div id="container">
+        <!-- Динамічний контент буде вставлятися сюди -->
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const response = await fetch('/api/mails');
+                const mails = await response.json();
+
+                const container = document.getElementById('container');
+                container.innerHTML = '';
+
+                mails.forEach(mail => {
+                    const contentDiv = document.createElement('div');
+                    contentDiv.classList.add('content');
+
+                    const nameDiv = document.createElement('div');
+                    nameDiv.textContent = `Name: ${mail.name}`;
+                    contentDiv.appendChild(nameDiv);
+
+                    const mobileDiv = document.createElement('div');
+                    mobileDiv.textContent = `Mobile: ${mail.mobile}`;
+                    contentDiv.appendChild(mobileDiv);
+
+                    const emailDiv = document.createElement('div');
+                    emailDiv.textContent = `Email: ${mail.mail}`;
+                    contentDiv.appendChild(emailDiv);
+
+                    const subjectDiv = document.createElement('div');
+                    subjectDiv.textContent = `Subject: ${mail.subject}`;
+                    contentDiv.appendChild(subjectDiv);
+
+                    const messageDiv = document.createElement('div');
+                    messageDiv.textContent = `Message: ${mail.message}`;
+                    contentDiv.appendChild(messageDiv);
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'del';
+                    deleteButton.onclick = async () => {
+                        const deleteResponse = await fetch(`/api/mails/${mail._id}`, {
+                            method: 'DELETE',
+                        });
+
+                        if (deleteResponse.ok) {
+                            contentDiv.remove();
+                        } else {
+                            alert('Failed to delete mail');
+                        }
+                    };
+                    contentDiv.appendChild(deleteButton);
+
+                    container.appendChild(contentDiv);
+                });
+            } catch (error) {
+                console.error('Error fetching mails:', error);
+            }
+        });
+    </script>
+</body>
+</html>
