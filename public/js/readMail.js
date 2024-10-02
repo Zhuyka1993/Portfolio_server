@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const mailContainer = document.getElementById('mailContainer');
 
     try {
-        const response = await fetch('http://localhost:5000/api/mails');
+        const response = await fetch('http://http://localhost:10000/api/mails');
         const mails = await response.json();
 
         mails.forEach(mail => {
