@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         try {
             // Відправляємо дані на сервер
-            const response = await fetch('https://portfolio-server-spvg.onrender.com/main/api/mails', {
+            const response = await fetch('https://portfolio-server-spvg.onrender.com/api/mails', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
