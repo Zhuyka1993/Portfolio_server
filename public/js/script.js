@@ -38,10 +38,10 @@ window.onscroll = () => {
 toggle.addEventListener('change', () => {
     if (toggle.checked) {
         // Перехід на англійську версію
-        window.location.href = '/main'; // Змінили на маршрут для англійської версії
+        window.location.href = 'https://oleksiiportfolio-b28ad68d6229.herokuapp.com/main'; // Змінили на маршрут для англійської версії
     } else {
         // Перехід на українську версію
-        window.location.href = '/mainUk'; // Змінили на маршрут для української версії
+        window.location.href = 'https://oleksiiportfolio-b28ad68d6229.herokuapp.com/mainUk'; // Змінили на маршрут для української версії
     }
 });
 
