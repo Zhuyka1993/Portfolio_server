@@ -59,6 +59,11 @@ app.get("/main", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "main.html"));
 });
 
+// Routing for main Ukr page
+app.get("/mainuk", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "mainUk.html"));
+});
+
 // Маршрут для адмін-панелі
 app.get("/admin", requireLogin, (req, res) => {
   res.render("admin");
