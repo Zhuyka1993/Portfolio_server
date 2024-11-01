@@ -62,69 +62,12 @@ body {
   color: var(--text-color);
   font-weight: 600;
 }
-/* language toggle */
 
-.toggle-container {
-  position: relative;
-  width: 80px;
+.lang img{ 
+  width: 15px;
+  height: 15px;
+  border-radius: 25%;
 }
-
-.toggle {
-  display: none; /* Сховати стандартний чекбокс */
-}
-
-.toggle-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  background-color: var(--main-color); /* Сірий фон */
-  border-radius: 20px;
-  padding: 10px;
-  position: relative;
-}
-
-.toggle-text {
-  color: white;
-  font-weight: bold;
-  text-decoration: none; /* Без підкреслення для посилань */
-  flex: 1; /* Дозволяє тексту займати простір */
-  text-align: center; /* Центрування тексту */
-}
-
-.toggle-indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(to right, #005bbb 50%, #ffd500 50%); /* Прапор України */
-  border-radius: 20px;
-  transition: transform 0.3s ease, background 0.3s ease; /* Додаємо анімацію кольору */
-}
-
-.toggle:checked + .toggle-label .toggle-indicator {
-  transform: translateX(100%);
-  background: linear-gradient(to right, red, white, red, white, red, white, blue 50%); /* Прапор США */
-}
-
-.toggle-label .toggle-text:first-child {
-  color: #00247d; /* Темно-синій для УКР */
-}
-
-.toggle-label .toggle-text:last-child {
-  color: white; /* Білий для EN */
-}
-
-.toggle:checked + .toggle-label .toggle-text:first-child {
-  color: white; /* Білий для УКР, коли обрано англійську */
-}
-
-.toggle:checked + .toggle-label .toggle-text:last-child {
-  color: #00247d; /* Темно-синій для EN, коли обрано */
-}
-
-/*End list of style for toggle language */
 
 
 .navbar {
@@ -572,9 +515,11 @@ background-color: var(--bg-color);
 height: 70px;
 margin: 0 auto;
 color: white;
-font-size: 12px;
+font-size: 8px;
 padding: 5%;
 -webkit-box-reflect: below 0px linear-gradient(transparent, transparent);
+border-radius: 10px;
+border: #00abf0 1px solid;
 
 
 }

@@ -31,35 +31,8 @@ window.onscroll = () => {
     }
   });
 
- //Button of language
- const toggle = document.getElementById('toggle');
+ 
 
-// Додавання події для переходу на відповідну сторінку
-toggle.addEventListener('change', () => {
-    if (toggle.checked) {
-        // Перехід на англійську версію
-        window.location.href = 'https://oleksiiportfolio-b28ad68d6229.herokuapp.com/main'; // Змінили на маршрут для англійської версії
-    } else {
-        // Перехід на українську версію
-        window.location.href = 'https://oleksiiportfolio-b28ad68d6229.herokuapp.com/mainUk'; // Змінили на маршрут для української версії
-    }
-});
-
-// Перевірка локального сховища при завантаженні сторінки
-window.onload = () => {
-    const isChecked = localStorage.getItem('toggleState') === 'true';
-    toggle.checked = isChecked;
-};
-
-// Додавання події для збереження стану перемикача
-toggle.addEventListener('change', () => {
-    const isChecked = toggle.checked;
-
-    // Зберігання стану у локальному сховищі
-    localStorage.setItem('toggleState', isChecked);
-});
-
-//end of button lang
 
   // Add 'sticky' class to header after scrolling
   let header = document.querySelector("header");
