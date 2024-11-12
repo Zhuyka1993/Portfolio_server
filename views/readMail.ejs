@@ -16,7 +16,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             try {
-                const response = await fetch('/mails');
+                const response = await fetch('https://oleksii-portfolio.up.railway.app/api/mails');
                 const mails = await response.json();
 
                 const container = document.getElementById('container');
@@ -49,7 +49,7 @@
                     const deleteButton = document.createElement('button');
                     deleteButton.textContent = 'del';
                     deleteButton.onclick = async () => {
-                        const deleteResponse = await fetch(`/api/mails/${mail._id}`, {
+                        const deleteResponse = await fetch(`https://oleksii-portfolio.up.railway.app/api/mails/${mail._id}`, {
                             method: 'DELETE',
                         });
 
