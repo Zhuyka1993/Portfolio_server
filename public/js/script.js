@@ -31,9 +31,6 @@ window.onscroll = () => {
     }
   });
 
- 
-
-
   // Add 'sticky' class to header after scrolling
   let header = document.querySelector("header");
   header.classList.toggle("sticky", scrollPosition > 100);
@@ -62,5 +59,3 @@ next.addEventListener("click", function () {
   box.style.transform = `perspective(1200px) rotateY(${degrees}deg)`;
   boxdesc.style.transform = `perspective(1200px) rotateY(${degrees}deg)`;
 });
-
-

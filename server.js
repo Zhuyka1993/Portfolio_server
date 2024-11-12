@@ -3,7 +3,7 @@ const connectDB = require("./db");
 const userMailRoutes = require("./routes/userMailRoutes");
 const path = require("path");
 const cors = require("cors");
-const session = require("express-session"); // додано для сесій
+const session = require("express-session");
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true })); // для парсингу да
 // Налаштування сесій
 app.use(
   session({
-    secret: "your_secret_key", // замініть на ваш секретний ключ
+    secret: "your_secret_key",
     resave: false,
     saveUninitialized: true,
   })
