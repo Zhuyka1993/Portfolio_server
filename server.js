@@ -75,7 +75,7 @@ app.get("/readMail", requireLogin, (req, res) => {
 });
 
 // Використання роутів для UserMail
-app.use("/api/mails", userMailRoutes);
+app.use("/api", userMailRoutes);
 
 // Обслуговування статичних файлів з папки 'public'
 app.use(express.static(path.join(__dirname, "public")));

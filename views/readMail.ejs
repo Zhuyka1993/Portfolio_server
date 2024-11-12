@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read Mail</title>
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
+
 <body>
     <h1>Read Mail</h1>
     <div id="container">
@@ -14,7 +16,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             try {
-                const response = await fetch('/api/mails');
+                const response = await fetch('/mails');
                 const mails = await response.json();
 
                 const container = document.getElementById('container');
@@ -67,4 +69,5 @@
         });
     </script>
 </body>
+
 </html>
