@@ -82,7 +82,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Маршрут для рендерингу HTML-сторінки з динамічним контентом
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "index.html"));
+  res.sendFile(path.join(__dirname, "views", "MainUk.html"));
 });
 
 // Запуск сервера
