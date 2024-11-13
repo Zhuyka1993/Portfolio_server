@@ -23,6 +23,9 @@ app.use(
   })
 );
 
+// Налаштування статичних файлів
+app.use(express.static(path.join(__dirname, "public")));
+
 // Налаштування EJS як шаблонізатора
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
