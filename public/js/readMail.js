@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const mailContainer = document.getElementById("mailContainer");
 
   try {
-    const response = await fetch(
-      "https://oleksii-portfolio.up.railway.app/api/mails"
-    );
+    const response = await fetch("/api/mails");
     const mails = await response.json();
 
     mails.forEach((mail) => {
@@ -35,12 +33,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       deleteButton.textContent = "Delete";
       deleteButton.addEventListener("click", async () => {
         try {
-          const deleteResponse = await fetch(
-            `https://oleksii-portfolio.up.railway.app/api/mails/${mail._id}`,
-            {
-              method: "DELETE",
-            }
-          );
+          const deleteResponse = await fetch(`/api/mails/${mail._id}`, {
+            method: "DELETE",
+          });
+
           if (deleteResponse.ok) {
             mailContainer.removeChild(contentDiv);
           } else {
@@ -51,8 +47,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           alert("Error deleting mail.");
         }
       });
-      contentDiv.appendChild(deleteButton);
 
+      contentDiv.appendChild(deleteButton);
       mailContainer.appendChild(contentDiv);
     });
   } catch (error) {

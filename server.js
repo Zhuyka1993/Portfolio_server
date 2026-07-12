@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const connectDB = require("./db");
 const userMailRoutes = require("./routes/userMailRoutes");
@@ -17,7 +18,7 @@ app.use(express.urlencoded({ extended: true })); // для парсингу да
 // Налаштування сесій
 app.use(
   session({
-    secret: "your_secret_key",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
   })
@@ -41,12 +42,15 @@ app.get("/login", (req, res) => {
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
   //Перевірка логіну та паролю
-  if (username == "Zhuyka" && password === "5195454q") {
-    req.session.user = username;
-    return res.redirect("/readMail");
-  } else {
-    res.send("Неправильний логін або пароль");
-  }
+if (
+  username === process.env.ADMIN_LOGIN &&
+  password === process.env.ADMIN_PASSWORD
+) {
+  req.session.user = username;
+  return res.redirect("/readMail");
+} else {
+  res.send("Неправильний логін або пароль");
+}
 });
 
 // Захист маршруту
