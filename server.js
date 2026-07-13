@@ -61,15 +61,7 @@ const requireLogin = (req, res, next) => {
     res.redirect("/login");
   }
 };
-// Routing for main page
-app.get("/main", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "main.html"));
-});
 
-// Routing for main Ukr page
-app.get("/mainuk", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "mainUk.html"));
-});
 
 // Маршрут для адмін-панелі
 app.get("/admin", requireLogin, (req, res) => {
@@ -87,9 +79,14 @@ app.use("/api", userMailRoutes);
 // Обслуговування статичних файлів з папки 'public'
 app.use(express.static(path.join(__dirname, "public")));
 
-// Маршрут для рендерингу HTML-сторінки з динамічним контентом
+// English version
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "MainUk.html"));
+  res.sendFile(path.join(__dirname, "views", "main.html"));
+});
+
+// Ukrainian version
+app.get("/uk", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "mainUk.html"));
 });
 
 // Запуск сервера
